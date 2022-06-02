@@ -1,0 +1,99 @@
+body {
+  background-image: url("../images/cloudBackground.jpg");
+}
+.col,
+.col-7 {
+  border-radius: 5px;
+  margin: 5px;
+  padding: 0px;
+}
+.main,
+.signature {
+  font-family: "Inter", sans-serif;
+  width: 60vw;
+  display: block;
+  min-width: 600px;
+  text-align: center;
+}
+.main {
+  background-color: black;
+  border-radius: 10px;
+  margin: 30px auto 0px auto;
+  padding: 15px 20px 25px 15px;
+}
+.signature {
+  margin: 10px 0px;
+  margin: 10px auto;
+}
+.padding {
+  padding: 10px;
+}
+.todayDetailsLeft {
+  border-radius: 5px 0px 0px 5px;
+  margin: 5px 0px 5px 5px;
+
+  font-size: 500%;
+}
+.todayDetailsRight {
+  border-radius: 0px 5px 5px 0px;
+  margin: 5px 5px 5px 0px;
+
+  text-align: right;
+  padding: 10px 15px 10px 10px;
+  position: relative;
+}
+.todaysTemp {
+  padding: 0px 0px 0px 10px;
+}
+.cityName {
+  font-size: 42px;
+  letter-spacing: 3px;
+}
+.welcome {
+  position: relative;
+  left: 5px;
+  letter-spacing: 5px;
+  padding: 8px 0px;
+  color: white;
+}
+.weatherIcon {
+  width: 75%;
+}
+.todaysIcon {
+  display: inline-block;
+  width: 35%;
+  padding: 0px 0px 0px 10px;
+}
+.dateDay,
+.dayTemp {
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+.weatherDesc {
+  font-size: 28px;
+  font-style: italic;
+}
+.alignLeft {
+  text-align: left;
+}
+.whiteBackground {
+  background-color: white;
+}
+.searchCol {
+  width: 79.25%;
+}
+.searchButton:hover,
+.currentButton:hover {
+  background-color: rgb(240, 129, 14);
+  border: solid 1px rgb(240, 129, 14);
+}
+.metricChange {
+  background-color: black;
+  color: white;
+}
+.metricChange:hover {
+  color: rgb(240, 129, 14);
+}
+.strong {
+  font-weight: bold;
+}
