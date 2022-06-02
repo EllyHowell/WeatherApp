@@ -17,7 +17,7 @@ function getDayName(dayValue) {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday",
+    "Saturday"
   ];
   return dayNames[dayValue];
 }
@@ -36,7 +36,7 @@ function getMonthName(monthValue) {
     "September",
     "October",
     "November",
-    "December",
+    "December"
   ];
   return monthNames[monthValue];
 }
@@ -83,6 +83,13 @@ function setFutureDates() {
   }
 }
 
+// Redirects to search for city when hitting enter
+function SearchCityNameKeyPress(event) {
+  if (event.key === "Enter") {
+    SearchCityName();
+  }
+}
+
 // Gathers the city name inputed in the search bar and calls the API
 function SearchCityName() {
   let search = document.querySelector(".citySearch");
@@ -109,7 +116,7 @@ function GetCurrentInfo(pos) {
       }
     })
     .catch(function (error) {
-      alert(`'${searchValue}' is not a valid city name`);
+      alert(error.message);
     });
 }
 
@@ -144,7 +151,7 @@ function SetCityInfo(searchValue) {
 }
 
 function getUnitParameter() {
-  return metric == "celsius" ? "metric" : "imperial";
+  return metric === "celsius" ? "metric" : "imperial";
 }
 
 // Sets the welcome message depending on the current time
@@ -205,6 +212,8 @@ metricChangeButton.addEventListener("click", UpdateTemperatureType);
 // City Search
 let searchButton = document.querySelector(".searchButton");
 searchButton.addEventListener("click", SearchCityName);
+let searchBar = document.querySelector(".citySearch");
+searchBar.addEventListener("keypress", SearchCityNameKeyPress);
 
 // Current Button
 let currentButton = document.querySelector(".currentButton");
