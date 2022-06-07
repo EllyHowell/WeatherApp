@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <style>
+      .box {
+        border: solid 5px black;
+        border-radius: 20px;
+      }
+      .col-2,
+      .col-3,
+      .col-4,
+      .col-6,
+      .col-8 {
+        display: table;
+        background-color: black;
+        color: white;
+      }
+      .padding10 {
+        padding: 10px;
+      }
+      .padding20 {
+        padding: 20px;
+      }
+      .fontSizeAdaptive {
+        font-size: calc(8px + 1vw);
+      }
+      .fontSizeAdaptive-Small {
+        font-size: calc(8px + 0.75vw);
+      }
+      .letterSpacing5 {
+        letter-spacing: 5px;
+      }
+      .main {
+        background: black;
+        border: 3vmin solid black;
+        border-radius: 20px;
+        margin: 5vw auto 15px auto;
+      }
+      .verticalCenter {
+        display: table-cell;
+        vertical-align: middle;
+      }
+      #citySearch {
+        border-radius: 10px;
+      }
+      #metricButton {
+        color: black;
+        border: 0px;
+        padding: 0px;
+      }
+      #metricButton:hover {
+        color: #ec6e4c;
+      }
+      #searchButton,
+      #currentButton {
+        background-color: white;
+        color: black;
+        border-radius: 10px;
+        padding: 0;
+        height: 38px;
+        width: 100%;
+      }
+      #searchButton:hover,
+      #currentButton:hover {
+        background-color: black;
+        color: white;
+      }
+      #signature {
+        display: block;
+        text-align: center;
+      }
+      body {
+        background-image: url("images/cloudBackground.jpg");
+        font-family: "Inter", sans-serif;
+      }
+      ul li {
+        display: inline;
+      }
+      ul {
+        padding: 0px;
+        margin: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main container">
+      <div class="row">
+        <div
+          class="col d-flex verticalCenter box"
+          style="
+            font-size: 7vmin;
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
+          "
+        >
+          <div id="welcomeMessage" style="font-size: 7vmin">
+            Good Afternoon |
+            <button
+              id="metricButton"
+              type="button"
+              class="btn btn-primary"
+              style="font-size: 7vmin; background-color: transparent"
+            >
+              °C
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Day 0 Icon -->
+        <div class="col-2 box">
+          <div class="verticalCenter" align="center">
+            <img
+              id="day0_icon"
+              class="weatherIcon"
+              src="icons/weather-icons/design/fill/animation-ready/clear-day.svg"
+              alt="Sunny"
+              style="width: 100%; object-fit: cover"
+            />
+          </div>
+        </div>
+        <!-- Day 0/ Main Information -->
+        <div class="col-8 fontSizeAdaptive box padding20">
+          <div class="verticalCenter">
+            <div id="location" class="letterSpacing5">LONDON</div>
+            <div id="day0_day" class="letterSpacing5">
+              <strong>THURSDAY</strong>
+            </div>
+            <div id="day0_time" class="fontSizeAdaptive-Small">4:20 PM</div>
+
+            <div align="right">
+              <span style="font-size: 3vmin; padding: 0px 5px 0px 0px"
+                ><strong>Humidity: </strong><span id="day0_wind">84%</span>
+              </span>
+              |
+              <span style="font-size: 3vmin">
+                <strong>Wind: </strong><span id="day0_wind">3.6 km/h</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Day 0 Temperature -->
+        <div class="col-2 box">
+          <div class="verticalCenter" style="font-size: 2vw" align="center">
+            <div id="day0_tempHigh"><strong>20 °C</strong></div>
+            <div id="day0_tempLow">16 °C</div>
+          </div>
+        </div>
+      </div>
+      <!-- Upcoming day/s information -->
+      <div class="row">
+        <!-- Day 1 Information-->
+        <div class="col-4 col-md-2 box padding10" align="center">
+          <div class="col fontSizeAdaptive">
+            <div id="day1_day" class="letterSpacing5">
+              <strong>FRIDAY</strong>
+            </div>
+            <div id="day1_date" style="font-size: 3vmin">03/06</div>
+            <img
+              id="day1_icon"
+              class="weatherIcon"
+              src="icons/weather-icons/design/fill/animation-ready/clear-day.svg"
+              style="width: 45%; margin: 5px"
+              alt="Sunny"
+            />
+            <ul class="fontSizeAdaptive-Small">
+              <li id="day1_tempHigh"><strong>20 °C</strong></li>
+              <li id="day1_tempLow">16 °C</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Day 2 Information-->
+        <div class="col-4 col-md-2 box padding10" align="center">
+          <div class="col fontSizeAdaptive">
+            <div id="day2_day" class="letterSpacing5">
+              <strong>FRIDAY</strong>
+            </div>
+            <div id="day2_date" style="font-size: 3vmin">03/06</div>
+            <img
+              id="day2_icon"
+              class="weatherIcon"
+              src="icons/weather-icons/design/fill/animation-ready/clear-day.svg"
+              style="width: 45%; margin: 5px"
+              alt="Sunny"
+            />
+            <ul class="fontSizeAdaptive-Small">
+              <li id="day2_tempHigh"><strong>20 °C</strong></li>
+              <li id="day2_tempLow">16 °C</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Day 3 Information-->
+        <div class="col-4 col-md-2 box padding10" align="center">
+          <div class="col fontSizeAdaptive">
+            <div id="day3_day" class="letterSpacing5">
+              <strong>FRIDAY</strong>
+            </div>
+            <div id="day3_date" style="font-size: 3vmin">03/06</div>
+            <img
+              id="day3_icon"
+              class="weatherIcon"
+              src="icons/weather-icons/design/fill/animation-ready/clear-day.svg"
+              style="width: 45%; margin: 5px"
+              alt="Sunny"
+            />
+            <ul class="fontSizeAdaptive-Small">
+              <li id="day3_tempHigh"><strong>20 °C</strong></li>
+              <li id="day3_tempLow">16 °C</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Day 4 Information-->
+        <div class="col-4 col-md-2 box padding10" align="center">
+          <div class="col fontSizeAdaptive">
+            <div id="day4_day" class="letterSpacing5">
+              <strong>FRIDAY</strong>
+            </div>
+            <div id="day4_date" style="font-size: 3vmin">03/06</div>
+            <img
+              id="day4_icon"
+              class="weatherIcon"
+              src="icons/weather-icons/design/fill/animation-ready/clear-day.svg"
+              style="width: 45%; margin: 5px"
+              alt="Sunny"
+            />
+            <ul class="fontSizeAdaptive-Small">
+              <li id="day4_tempHigh"><strong>20 °C</strong></li>
+              <li id="day4_tempLow">16 °C</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Day 5 Information-->
+        <div class="col-4 col-md-2 box padding10" align="center">
+          <div class="col fontSizeAdaptive">
+            <div id="day5_day" class="letterSpacing5">
+              <strong>FRIDAY</strong>
+            </div>
+            <div id="day5_date" style="font-size: 3vmin">03/06</div>
+            <img
+              id="day5_icon"
+              class="weatherIcon"
+              src="icons/weather-icons/design/fill/animation-ready/clear-day.svg"
+              style="width: 45%; margin: 5px"
+              alt="Sunny"
+            />
+            <ul class="fontSizeAdaptive-Small">
+              <li id="day5_tempHigh"><strong>20 °C</strong></li>
+              <li id="day5_tempLow">16 °C</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Day 6 Information-->
+        <div class="col-4 col-md-2 box padding10" align="center">
+          <div class="col fontSizeAdaptive">
+            <div id="day6_day" class="letterSpacing5">
+              <strong>FRIDAY</strong>
+            </div>
+            <div id="day6_date" style="font-size: 3vmin">03/06</div>
+            <img
+              id="day6_icon"
+              class="weatherIcon"
+              src="icons/weather-icons/design/fill/animation-ready/clear-day.svg"
+              style="width: 45%; margin: 5px"
+              alt="Sunny"
+            />
+            <ul class="fontSizeAdaptive-Small">
+              <li id="day6_tempHigh"><strong>20 °C</strong></li>
+              <li id="day6_tempLow">16 °C</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Search Engine Section -->
+      <div class="row">
+        <div class="col-6 col-md-8 box" align="center" style="padding: 0px">
+          <input
+            id="citySearch"
+            type="text"
+            class="form-control"
+            placeholder="Enter a city..."
+            aria-label="City Search"
+            aria-describedby="basic-addon2"
+          />
+        </div>
+        <div
+          class="col-3 col-md-2 box"
+          align="center"
+          style="background-color: black; padding: 0px"
+        >
+          <button
+            id="searchButton"
+            class="btn btn-default btn-block"
+            type="button"
+          >
+            SEARCH
+          </button>
+        </div>
+        <div
+          class="col-3 col-md-2 box"
+          align="center"
+          style="background-color: black; padding: 0px"
+        >
+          <button
+            id="currentButton"
+            class="btn btn-default btn-block"
+            type="button"
+          >
+            CURRENT
+          </button>
+        </div>
+      </div>
+    </div>
+    <span id="signature" class="letterSpacing5"
+      ><strong>Created by Elly Howell</strong></span
+    >
+  </body>
+</html>
