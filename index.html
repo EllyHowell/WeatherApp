@@ -21,99 +21,245 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <div class="main">
-      <h1 class="welcome alignLeft">
-        <span id="welcomeMessage">WELCOME MESSAGE HERE</span>
-        | <button class="metricChange">TEMP</button>
-      </h1>
-      <div class="container">
-        <div class="row">
+    <div class="main container">
+      <div class="row">
+        <div
+          class="col d-flex verticalCenter box"
+          style="
+            font-size: 7vmin;
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
+          "
+        >
           <div
-            class="col-6 whiteBackground todayDetailsLeft alignLeft d-flex align-items-center"
+            id="welcomeMessage"
+            style="font-size: 7vmin; padding: 0px 10px 0px 0px"
           >
-            <img class="todaysIcon" src="icons/icons8-sun.gif" alt="Sunny" />
-            <div class="todaysTemp">TEMP</div>
+            Good Afternoon |
           </div>
-          <div class="col whiteBackground todayDetailsRight padding">
-            <div class="cityName strong">TEMP</div>
-            <div class="dateTimeNow">TEMP</div>
-            <div class="weatherDesc" style="width: auto; padding: 10% 0% 0% 0%">
-              TEMP
+          <button
+            id="metricButton"
+            type="button"
+            class="btn btn-primary"
+            style="font-size: 7vmin; background-color: transparent"
+          >
+            °C
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <!-- Day 0 Icon -->
+        <div class="col-2 box">
+          <div class="verticalCenter" align="center">
+            <img
+              id="day0_icon"
+              class="weatherIcon"
+              src="icons/weather-icons/design/fill/animation-ready/clear-day.svg"
+              alt="Sunny"
+              style="width: 100%; object-fit: cover"
+            />
+          </div>
+        </div>
+        <!-- Day 0/ Main Information -->
+        <div class="col-8 fontSizeAdaptive box padding20">
+          <div class="verticalCenter">
+            <div id="location" class="letterSpacing5">LONDON</div>
+            <div id="day0_day" class="letterSpacing5" style="font-weight: bold">
+              <strong>THURSDAY</strong>
+            </div>
+            <div id="day0_time" class="fontSizeAdaptive-Small">4:20 PM</div>
+
+            <div align="right">
+              <span style="font-size: 3vmin; padding: 0px 5px 0px 0px"
+                ><strong>Humidity: </strong><span id="day0_humidity">84%</span>
+              </span>
+              |
+              <span style="font-size: 3vmin">
+                <strong>Wind: </strong><span id="day0_wind">3.6 km/h</span>
+              </span>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col padding day0 whiteBackground">
-            <div class="dateDay strong">TEMP</div>
-            <div class="date">TEMP</div>
-            <img
-              class="weatherIcon"
-              src="icons/icons8-partly-cloudy-day.gif"
-              alt="Cloudy"
-            />
-            <div class="dayTemp">TEMP</div>
-          </div>
-          <div class="col padding day1 whiteBackground">
-            <div class="dateDay strong">TEMP</div>
-            <div class="date">TEMP</div>
-            <img
-              class="weatherIcon"
-              src="icons/icons8-storm.gif"
-              alt="Stormy"
-            />
-            <div class="dayTemp">TEMP</div>
-          </div>
-          <div class="col padding day2 whiteBackground">
-            <div class="dateDay strong">TEMP</div>
-            <div class="date">TEMP</div>
-            <img
-              class="weatherIcon"
-              src="icons/icons8-windy-weather.gif"
-              alt="Wind"
-            />
-            <div class="dayTemp">TEMP</div>
-          </div>
-          <div class="col padding day3 whiteBackground">
-            <div class="dateDay strong">TEMP</div>
-            <div class="date">TEMP</div>
-            <img
-              class="weatherIcon"
-              src="icons/icons8-partly-cloudy-day.gif"
-              alt="Cloudy"
-            />
-            <div class="dayTemp">TEMP</div>
-          </div>
-          <div class="col padding day4 whiteBackground">
-            <div class="dateDay strong">TEMP</div>
-            <div class="date">TEMP</div>
-            <img class="weatherIcon" src="icons/icons8-sun.gif" alt="Sunny" />
-            <div class="dayTemp">TEMP</div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-7 searchCol">
-            <input
-              type="text"
-              class="citySearch form-control"
-              placeholder="Enter a city..."
-              aria-label="Enter a city..."
-              aria-describedby="basic-addon2"
-            />
-          </div>
-          <div class="col">
-            <button class="searchButton btn btn-light w-100" type="button">
-              SEARCH
-            </button>
-          </div>
-          <div class="col">
-            <button class="currentButton btn btn-light w-100" type="button">
-              CURRENT
-            </button>
+        <!-- Day 0 Temperature -->
+        <div class="col-2 box">
+          <div class="verticalCenter" style="font-size: 2vw" align="center">
+            <div id="day0_tempHigh"><strong>20 °C</strong></div>
+            <div id="day0_tempLow">16 °C</div>
           </div>
         </div>
       </div>
+      <!-- Upcoming day/s information -->
+      <div class="row">
+        <!-- Day 1 Information-->
+        <div class="col-4 col-md-2 box padding10" align="center">
+          <div class="col fontSizeAdaptive">
+            <div id="day1_day" style="font-weight: bold">
+              <strong>FRIDAY</strong>
+            </div>
+            <div id="day1_date" style="font-size: 3vmin">03/06</div>
+            <img
+              id="day1_icon"
+              class="weatherIcon"
+              src="icons/weather-icons/design/fill/animation-ready/clear-day.svg"
+              style="width: 45%; margin: 5px"
+              alt="Sunny"
+            />
+            <ul class="fontSizeAdaptive-Small">
+              <li id="day1_tempHigh"><strong>20 °C</strong></li>
+              <li id="day1_tempLow">16 °C</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Day 2 Information-->
+        <div class="col-4 col-md-2 box padding10" align="center">
+          <div class="col fontSizeAdaptive">
+            <div id="day2_day" style="font-weight: bold">
+              <strong>FRIDAY</strong>
+            </div>
+            <div id="day2_date" style="font-size: 3vmin">03/06</div>
+            <img
+              id="day2_icon"
+              class="weatherIcon"
+              src="icons/weather-icons/design/fill/animation-ready/clear-day.svg"
+              style="width: 45%; margin: 5px"
+              alt="Sunny"
+            />
+            <ul class="fontSizeAdaptive-Small">
+              <li id="day2_tempHigh"><strong>20 °C</strong></li>
+              <li id="day2_tempLow">16 °C</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Day 3 Information-->
+        <div class="col-4 col-md-2 box padding10" align="center">
+          <div class="col fontSizeAdaptive">
+            <div id="day3_day" style="font-weight: bold">
+              <strong>FRIDAY</strong>
+            </div>
+            <div id="day3_date" style="font-size: 3vmin">03/06</div>
+            <img
+              id="day3_icon"
+              class="weatherIcon"
+              src="icons/weather-icons/design/fill/animation-ready/clear-day.svg"
+              style="width: 45%; margin: 5px"
+              alt="Sunny"
+            />
+            <ul class="fontSizeAdaptive-Small">
+              <li id="day3_tempHigh"><strong>20 °C</strong></li>
+              <li id="day3_tempLow">16 °C</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Day 4 Information-->
+        <div class="col-4 col-md-2 box padding10" align="center">
+          <div class="col fontSizeAdaptive">
+            <div id="day4_day" style="font-weight: bold">
+              <strong>FRIDAY</strong>
+            </div>
+            <div id="day4_date" style="font-size: 3vmin">03/06</div>
+            <img
+              id="day4_icon"
+              class="weatherIcon"
+              src="icons/weather-icons/design/fill/animation-ready/clear-day.svg"
+              style="width: 45%; margin: 5px"
+              alt="Sunny"
+            />
+            <ul class="fontSizeAdaptive-Small">
+              <li id="day4_tempHigh"><strong>20 °C</strong></li>
+              <li id="day4_tempLow">16 °C</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Day 5 Information-->
+        <div class="col-4 col-md-2 box padding10" align="center">
+          <div class="col fontSizeAdaptive">
+            <div id="day5_day" style="font-weight: bold">
+              <strong>FRIDAY</strong>
+            </div>
+            <div id="day5_date" style="font-size: 3vmin">03/06</div>
+            <img
+              id="day5_icon"
+              class="weatherIcon"
+              src="icons/weather-icons/design/fill/animation-ready/clear-day.svg"
+              style="width: 45%; margin: 5px"
+              alt="Sunny"
+            />
+            <ul class="fontSizeAdaptive-Small">
+              <li id="day5_tempHigh"><strong>20 °C</strong></li>
+              <li id="day5_tempLow">16 °C</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Day 6 Information-->
+        <div class="col-4 col-md-2 box padding10" align="center">
+          <div class="col fontSizeAdaptive">
+            <div id="day6_day" style="font-weight: bold">
+              <strong>FRIDAY</strong>
+            </div>
+            <div id="day6_date" style="font-size: 3vmin">03/06</div>
+            <img
+              id="day6_icon"
+              class="weatherIcon"
+              src="icons/weather-icons/design/fill/animation-ready/clear-day.svg"
+              style="width: 45%; margin: 5px"
+              alt="Sunny"
+            />
+            <ul class="fontSizeAdaptive-Small">
+              <li id="day6_tempHigh"><strong>20 °C</strong></li>
+              <li id="day6_tempLow">16 °C</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- Search Engine Section -->
+      <div class="row">
+        <div class="col-6 col-md-8 box" align="center" style="padding: 0px">
+          <input
+            id="citySearch"
+            type="text"
+            class="form-control"
+            placeholder="Enter a city..."
+            aria-label="City Search"
+            aria-describedby="basic-addon2"
+          />
+        </div>
+        <div
+          class="col-3 col-md-2 box"
+          align="center"
+          style="background-color: black; padding: 0px"
+        >
+          <button
+            id="searchButton"
+            class="btn btn-default btn-block"
+            type="button"
+          >
+            SEARCH
+          </button>
+        </div>
+        <div
+          class="col-3 col-md-2 box"
+          align="center"
+          style="background-color: black; padding: 0px"
+        >
+          <button
+            id="currentButton"
+            class="btn btn-default btn-block"
+            type="button"
+          >
+            CURRENT
+          </button>
+        </div>
+      </div>
     </div>
-    <p class="signature alignLeft">Open-source code by Elly Howell</p>
+    <span id="signature" class="letterSpacing5"
+      ><strong>Created by Elly Howell</strong></span
+    >
   </body>
-  <script src="src/index.js"></script>
+  <script type="text/javascript" src="./src/CurrentPositionWeather.js"></script>
+  <script type="text/javascript" src="./src/CitySearchWeather.js"></script>
+  <script type="text/javascript" src="./src/DateUtils.js"></script>
+  <script type="text/javascript" src="./src/DisplayUtils.js"></script>
+  <script type="text/javascript" src="./src/PageData.js"></script>
+  <script type="text/javascript" src="./src/index.js"></script>
 </html>

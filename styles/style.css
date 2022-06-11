@@ -1,99 +1,84 @@
-body {
-  background-image: url("../images/cloudBackground.jpg");
+.box {
+  border: solid 5px black;
+  border-radius: 20px;
+  transition: all 0.75s ease-out;
 }
-.col,
-.col-7 {
-  border-radius: 5px;
-  margin: 5px;
-  padding: 0px;
-}
-.main,
-.signature {
-  font-family: "Inter", sans-serif;
-  width: 60vw;
-  display: block;
-  min-width: 600px;
-  text-align: center;
-}
-.main {
+.col-2,
+.col-3,
+.col-4,
+.col-6,
+.col-8 {
+  display: table;
   background-color: black;
-  border-radius: 10px;
-  margin: 30px auto 0px auto;
-  padding: 15px 20px 25px 15px;
+  color: white;
 }
-.signature {
-  margin: 10px 0px;
-  margin: 10px auto;
-}
-.padding {
+.padding10 {
   padding: 10px;
 }
-.todayDetailsLeft {
-  border-radius: 5px 0px 0px 5px;
-  margin: 5px 0px 5px 5px;
-
-  font-size: 500%;
+.padding20 {
+  padding: 20px;
 }
-.todayDetailsRight {
-  border-radius: 0px 5px 5px 0px;
-  margin: 5px 5px 5px 0px;
-
-  text-align: right;
-  padding: 10px 15px 10px 10px;
-  position: relative;
+.fontSizeAdaptive {
+  font-size: calc(8px + 1vw);
 }
-.todaysTemp {
-  padding: 0px 0px 0px 10px;
+.fontSizeAdaptive-Small {
+  font-size: calc(8px + 0.75vw);
 }
-.cityName {
-  font-size: 42px;
-  letter-spacing: 3px;
-}
-.welcome {
-  position: relative;
-  left: 5px;
+.letterSpacing5 {
   letter-spacing: 5px;
-  padding: 8px 0px;
-  color: white;
 }
-.weatherIcon {
-  width: 75%;
+.main {
+  background: black;
+  border: 3vmin solid black;
+  border-radius: 20px;
+  margin: 5vw auto 15px auto;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
-.todaysIcon {
-  display: inline-block;
-  width: 35%;
-  padding: 0px 0px 0px 10px;
+.verticalCenter {
+  display: table-cell;
+  vertical-align: middle;
 }
-.dateDay,
-.dayTemp {
-  font-size: 24px;
-  letter-spacing: 1px;
+#citySearch {
+  border-radius: 10px;
 }
-.weatherDesc {
-  font-size: 28px;
-  font-style: italic;
+#metricButton {
+  color: black;
+  border: 0px;
+  padding: 0px;
 }
-.alignLeft {
-  text-align: left;
+#metricButton:hover {
+  color: rgba(0, 0, 0, 0.35);
+  transition: all 0.5s ease-in;
 }
-.whiteBackground {
+#searchButton,
+#currentButton {
   background-color: white;
+  color: black;
+  border-radius: 10px;
+  padding: 0;
+  height: 38px;
+  width: 100%;
 }
-.searchCol {
-  width: 79.25%;
-}
-.searchButton:hover,
-.currentButton:hover {
-  background-color: rgb(240, 129, 14);
-  border: solid 1px rgb(240, 129, 14);
-}
-.metricChange {
+#searchButton:hover,
+#currentButton:hover {
   background-color: black;
   color: white;
+  transition: all 0.5s ease-in;
 }
-.metricChange:hover {
-  color: rgb(240, 129, 14);
+#signature {
+  display: block;
+  text-align: center;
 }
-.strong {
-  font-weight: bold;
+body {
+  background-image: url("../images/cloudBackground.jpg");
+  font-family: "Inter", sans-serif;
+}
+ul li {
+  display: inline;
+}
+ul {
+  padding: 0px;
+  margin: 0px;
 }
