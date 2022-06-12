@@ -1,84 +1,93 @@
-.box {
-  border: solid 5px black;
-  border-radius: 20px;
-  transition: all 0.75s ease-out;
-}
-.col-2,
-.col-3,
-.col-4,
-.col-6,
-.col-8 {
-  display: table;
-  background-color: black;
-  color: white;
-}
-.padding10 {
-  padding: 10px;
-}
-.padding20 {
-  padding: 20px;
-}
-.fontSizeAdaptive {
-  font-size: calc(8px + 1vw);
-}
-.fontSizeAdaptive-Small {
-  font-size: calc(8px + 0.75vw);
-}
-.letterSpacing5 {
-  letter-spacing: 5px;
-}
-.main {
-  background: black;
-  border: 3vmin solid black;
-  border-radius: 20px;
-  margin: 5vw auto 15px auto;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-.verticalCenter {
-  display: table-cell;
-  vertical-align: middle;
-}
-#citySearch {
-  border-radius: 10px;
-}
-#metricButton {
-  color: black;
-  border: 0px;
-  padding: 0px;
-}
-#metricButton:hover {
-  color: rgba(0, 0, 0, 0.35);
-  transition: all 0.5s ease-in;
-}
-#searchButton,
-#currentButton {
-  background-color: white;
-  color: black;
-  border-radius: 10px;
-  padding: 0;
-  height: 38px;
-  width: 100%;
-}
-#searchButton:hover,
-#currentButton:hover {
-  background-color: black;
-  color: white;
-  transition: all 0.5s ease-in;
-}
-#signature {
-  display: block;
-  text-align: center;
+a {
+  font-weight: bold;
+  text-decoration: none;
 }
 body {
   background-image: url("../images/cloudBackground.jpg");
   font-family: "Inter", sans-serif;
 }
-ul li {
-  display: inline;
+.card-header {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-weight: lighter;
 }
-ul {
+.col-4,
+.col-8 {
+  padding: 20px;
+  position: relative;
+}
+.input-group {
+  margin: 20px auto;
+}
+.main {
+  width: 1100px;
+}
+#day0 {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  margin: 20px 0px;
+}
+#day0_desc,
+#day0_humidityWind {
+  font-size: 18px;
+  position: absolute;
+}
+#day0_desc {
+  bottom: 45px;
+  font-size: 28px;
+  font-style: italic;
+}
+#day0_humidityWind {
+  bottom: 20px;
+}
+#day0_icon {
+  margin: 0px 20px 0px 0px;
+}
+#day0_icon,
+#day0_tempList {
+  display: inline-block;
+}
+#day0_tempList {
   padding: 0px;
-  margin: 0px;
+  line-height: 50px;
+  list-style: none;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+}
+#day0_tempList li {
+  font-size: 42px;
+  padding: 10px;
+}
+#day0_tempHigh {
+  font-weight: bold;
+}
+#metricButton {
+  color: white;
+  font-size: 25px;
+  font-weight: lighter;
+}
+#metricButton:hover {
+  background-color: transparent;
+  font-weight: bolder;
+}
+#searchButton,
+#currentButton {
+  background-color: white;
+  color: black;
+  transition: all 0.5s ease-in;
+}
+#searchButton:hover,
+#currentButton:hover {
+  background-color: black;
+  color: white;
+}
+#signature {
+  text-align: center;
+}
+#welcomeMessage {
+  font-size: 28px;
 }

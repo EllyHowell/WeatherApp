@@ -10,7 +10,7 @@ function GetCurrentInfo(pos) {
       if (response.status === 200) {
         SetLocation(response.data.name);
         SetTodaysTemperatures(response);
-        SetWeatherIcon(response.data.weather[0].description);
+        SetWeatherIconAndDesc(response.data.weather[0].description);
       }
     })
     .catch(function (error) {

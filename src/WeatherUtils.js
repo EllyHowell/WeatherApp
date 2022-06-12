@@ -1,43 +1,36 @@
 // Sets the weather icon depending the given description
-function SetWeatherIcon(description) {
+function SetWeatherIconAndDesc(description) {
   let weatherIcon = document.getElementById("day0_icon");
+  let desc = document.getElementById("day0_desc");
+
   switch (description) {
     case "clear sky":
-      weatherIcon.src =
-        "icons/weather-icons/design/fill/animation-ready/clear-day.svg";
+      weatherIcon.src = "icons/icons8-sun.gif";
       break;
     case "few clouds":
     case "broken clouds":
-      weatherIcon.src =
-        "icons/weather-icons/design/fill/animation-ready/overcast.svg";
-      break;
     case "scattered clouds":
-      weatherIcon.src =
-        "icons/weather-icons/design/fill/animation-ready/cloudy.svg";
+      weatherIcon.src = "icons/icons8-partly-cloudy-day.gif";
       break;
     case "shower rain":
-      weatherIcon.src =
-        "icons/weather-icons/design/fill/animation-ready/drizzle.svg";
+      weatherIcon.src = "icons/icons8-light-rain.gif";
       break;
     case "rain":
-      weatherIcon.src =
-        "icons/weather-icons/design/fill/animation-ready/rain.svg";
+      weatherIcon.src = "icons/icons8-rain.gif";
       break;
     case "thunderstorm":
-      weatherIcon.src =
-        "icons/weather-icons/design/fill/animation-ready/thunderstorms.svg";
+      weatherIcon.src = "icons/icons8-storm.gif";
       break;
     case "snow":
-      weatherIcon.src =
-        "icons/weather-icons/design/fill/animation-ready/snow.svg";
+      weatherIcon.src = "icons/icons8-light-snow.gif";
       break;
     case "mist":
-      weatherIcon.src =
-        "icons/weather-icons/design/fill/animation-ready/mist.svg";
+      weatherIcon.src = "icons/icons8-haze.gif";
       break;
     default:
       throw new error(`'${description}' was not a valid description`);
   }
 
   weatherIcon.alt = description;
+  desc.innerHTML = description;
 }

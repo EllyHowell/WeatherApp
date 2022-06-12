@@ -23,7 +23,7 @@ function SetCityInfo(searchValue) {
         SetTodaysTemperatures(response);
         SetTodaysHumidity(response);
         SetTodaysWind(response);
-        SetWeatherIcon(response.data.weather[0].description);
+        SetWeatherIconAndDesc(response.data.weather[0].description);
       }
     })
     .catch(function (error) {

@@ -18,6 +18,9 @@ function setDateTimes() {
   let todayDay = document.getElementById("day0_day");
 
   let date = new Date();
-  todayTime.innerHTML = `${date.getHours()}:${date.getMinutes()}`;
+  let hours = date.getHours();
+  let minutes =
+    date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+  todayTime.innerHTML = `${hours}:${minutes}`;
   todayDay.innerHTML = `${getDayName(date.getDay())}`;
 }

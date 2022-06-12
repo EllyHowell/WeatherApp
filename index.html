@@ -21,107 +21,62 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
   <body>
+    <h5 class="card-header d-flex justify-content-between align-items-center">
+      <div id="welcomeMessage">Good Afternoon</div>
+      <button id="metricButton" class="btn btn-outline-secondary" type="button">
+        °C
+      </button>
+    </h5>
     <div class="main container">
-      <div class="row">
-        <div
-          class="col d-flex verticalCenter box"
-          style="
-            font-size: 7vmin;
-            padding: 10px 20px;
-            background-color: white;
-            color: black;
-          "
-        >
-          <div
-            id="welcomeMessage"
-            style="font-size: 7vmin; padding: 0px 10px 0px 0px"
-          >
-            Good Afternoon |
-          </div>
-          <button
-            id="metricButton"
-            type="button"
-            class="btn btn-primary"
-            style="font-size: 7vmin; background-color: transparent"
-          >
-            °C
-          </button>
-        </div>
-      </div>
-      <div class="row">
-        <!-- Day 0 Icon -->
-        <div class="col-2 box">
-          <div class="verticalCenter" align="center">
-            <img
-              id="day0_icon"
-              class="weatherIcon"
-              src="icons/weather-icons/design/fill/animation-ready/clear-day.svg"
-              alt="Sunny"
-              style="width: 100%; object-fit: cover"
-            />
-          </div>
-        </div>
+      <div id="day0" class="row">
         <!-- Day 0/ Main Information -->
-        <div class="col-8 fontSizeAdaptive box padding20">
-          <div class="verticalCenter">
-            <div id="location" class="letterSpacing5">LONDON</div>
-            <div id="day0_day" class="letterSpacing5" style="font-weight: bold">
-              <strong>THURSDAY</strong>
-            </div>
-            <div id="day0_time" class="fontSizeAdaptive-Small">4:20 PM</div>
+        <div class="col-8">
+          <h1 id="location">LONDON</h1>
+          <span>
+            <span id="day0_day">THURSDAY</span>
+            @
+            <span id="day0_time">4:20 PM</span>
+          </span>
 
-            <div align="right">
-              <span style="font-size: 3vmin; padding: 0px 5px 0px 0px"
-                ><strong>Humidity: </strong><span id="day0_humidity">84%</span>
-              </span>
-              |
-              <span style="font-size: 3vmin">
-                <strong>Wind: </strong><span id="day0_wind">3.6 km/h</span>
-              </span>
-            </div>
+          <div id="day0_desc">broken clouds</div>
+          <div id="day0_humidityWind">
+            <strong>Humidity: </strong><span id="day0_humidity">84%</span>
+            |
+            <strong>Wind: </strong><span id="day0_wind">3.6 km/h</span>
           </div>
         </div>
         <!-- Day 0 Temperature -->
-        <div class="col-2 box">
-          <div class="verticalCenter" style="font-size: 2vw" align="center">
-            <div id="day0_tempHigh"><strong>20 °C</strong></div>
-            <div id="day0_tempLow">16 °C</div>
+        <div class="col-4">
+          <div id="tempContainer" align="right">
+            <img id="day0_icon" src="icons/icons8-sun.gif" width="150" />
+            <ul id="day0_tempList">
+              <li id="day0_tempHigh">20 °C</li>
+              <li id="day0_tempLow">16 °C</li>
+            </ul>
           </div>
         </div>
       </div>
       <!-- Search Engine Section -->
-      <div class="row">
-        <div class="col-6 col-md-8 box" align="center" style="padding: 0px">
-          <input
-            id="citySearch"
-            type="text"
-            class="form-control"
-            placeholder="Enter a city..."
-            aria-label="City Search"
-            aria-describedby="basic-addon2"
-          />
-        </div>
-        <div
-          class="col-3 col-md-2 box"
-          align="center"
-          style="background-color: black; padding: 0px"
-        >
+      <div class="input-group">
+        <input
+          id="citySearch"
+          type="text"
+          class="form-control"
+          placeholder="Enter a city..."
+          aria-label="City Search"
+          aria-describedby="basic-addon2"
+        />
+        <div class="input-group-append">
           <button
             id="searchButton"
-            class="btn btn-default btn-block"
+            class="btn btn-outline-secondary"
             type="button"
           >
             SEARCH
           </button>
-        </div>
-        <div
-          class="col-3 col-md-2 box"
-          align="center"
-          style="background-color: black; padding: 0px"
-        >
           <button
             id="currentButton"
-            class="btn btn-default btn-block"
+            class="btn btn-outline-secondary"
             type="button"
           >
             CURRENT
@@ -129,9 +84,13 @@
         </div>
       </div>
     </div>
-    <span id="signature" class="letterSpacing5"
-      ><strong>Created by Elly Howell</strong></span
-    >
+    <div id="signature">
+      This project was coded by Elly Howell is
+      <a href="https://github.com/EllyHowell/WeatherApp"
+        >open-sourced on GitHub</a
+      >
+      and hosted on <a href="https://www.netlify.com/">Netlify</a>
+    </div>
   </body>
   <script type="text/javascript" src="./src/CurrentPositionWeather.js"></script>
   <script type="text/javascript" src="./src/CitySearchWeather.js"></script>
@@ -139,6 +98,5 @@
   <script type="text/javascript" src="./src/DisplayUtils.js"></script>
   <script type="text/javascript" src="./src/PageData.js"></script>
   <script type="text/javascript" src="./src/WeatherUtils.js"></script>
-
   <script type="text/javascript" src="./src/index.js"></script>
 </html>

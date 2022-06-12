@@ -2,14 +2,13 @@
 function setWelcomeMessage() {
   let hour = new Date().getHours();
   let welcomeMessgae = document.getElementById("welcomeMessage");
-  let messageSuffix = " |";
 
   if (hour > 0 && hour <= 12) {
-    welcomeMessgae.innerHTML = "Good Morning" + messageSuffix;
+    welcomeMessgae.innerHTML = "Good Morning";
   } else if (hour > 12 && hour <= 18) {
-    welcomeMessgae.innerHTML = "Good Afternoon" + messageSuffix;
+    welcomeMessgae.innerHTML = "Good Afternoon";
   } else {
-    welcomeMessgae.innerHTML = "Good Evening" + messageSuffix;
+    welcomeMessgae.innerHTML = "Good Evening";
   }
 }
 
@@ -19,10 +18,7 @@ function SetTodaysTemperatures(response) {
   let todaysTempLowDisplay = document.getElementById("day0_tempLow");
 
   todaysTempHighDisplay.innerHTML =
-    "<strong>" +
-    Math.round(response.data.main.temp_max) +
-    pageData.metricSuffix +
-    "</strong>";
+    Math.round(response.data.main.temp_max) + pageData.metricSuffix;
 
   // Set low temperature
   todaysTempLowDisplay.innerHTML =
@@ -38,6 +34,7 @@ function SetTodaysWind(response) {
 
 // Sets todays humidity from the response from API
 function SetTodaysHumidity(response) {
+  console.log(response.data.main);
   let todayHumidityDisplay = document.getElementById("day0_humidity");
   todayHumidityDisplay.innerHTML = response.data.main.humidity + "%";
 }
