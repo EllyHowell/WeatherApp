@@ -6,15 +6,26 @@ body {
   background-image: url("../images/cloudBackground.jpg");
   font-family: "Inter", sans-serif;
 }
+.bold {
+  font-weight: bold;
+}
 .card-header {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   font-weight: lighter;
 }
+.col {
+  padding: 10px;
+  position: relative;
+}
 .col-4,
 .col-8 {
   padding: 20px;
   position: relative;
+}
+.forecastContainer {
+  padding: 10px;
+  text-align: center;
 }
 .input-group {
   margin: 20px auto;
@@ -23,12 +34,20 @@ body {
   width: 1100px;
 }
 #day0 {
+  margin: 20px 0px;
+}
+#day0,
+#day1,
+#day2,
+#day3,
+#day4,
+#day5,
+#day6 {
   background-color: white;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  margin: 20px 0px;
 }
 #day0_desc,
 #day0_humidityWind {
@@ -62,8 +81,11 @@ body {
   font-size: 42px;
   padding: 10px;
 }
-#day0_tempHigh {
-  font-weight: bold;
+#firstForecastContainer {
+  padding: 10px 10px 10px 0px;
+}
+#finalForecastContainer {
+  padding: 10px 0px 10px 10px;
 }
 #metricButton {
   color: white;
@@ -85,9 +107,14 @@ body {
   background-color: black;
   color: white;
 }
+#citySearch {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+}
 #signature {
   text-align: center;
 }
 #welcomeMessage {
   font-size: 28px;
+  letter-spacing: 10px;
 }
