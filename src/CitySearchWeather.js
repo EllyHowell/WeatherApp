@@ -20,10 +20,13 @@ function SetCityInfo(searchValue) {
     .then((response) => {
       if (response.status === 200) {
         SetLocation(searchValue);
+
         SetTodaysTemperatures(response);
         SetTodaysHumidity(response);
         SetTodaysWind(response);
-        SetWeatherIconAndDesc(response.data.weather[0].description);
+        SetWeatherIconAndDesc(response.data.weather[0]);
+
+        getForecast(response.data.coord);
       }
     })
     .catch(function (error) {

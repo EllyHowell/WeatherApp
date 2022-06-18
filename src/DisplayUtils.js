@@ -34,7 +34,6 @@ function SetTodaysWind(response) {
 
 // Sets todays humidity from the response from API
 function SetTodaysHumidity(response) {
-  console.log(response.data.main);
   let todayHumidityDisplay = document.getElementById("day0_humidity");
   todayHumidityDisplay.innerHTML = response.data.main.humidity + "%";
 }

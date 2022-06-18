@@ -1,36 +1,30 @@
 // Sets the weather icon depending the given description
-function SetWeatherIconAndDesc(description) {
+function SetWeatherIconAndDesc(data) {
+  console.log(data);
   let weatherIcon = document.getElementById("day0_icon");
   let desc = document.getElementById("day0_desc");
 
-  switch (description) {
-    case "clear sky":
-      weatherIcon.src = "icons/icons8-sun.gif";
-      break;
-    case "few clouds":
-    case "broken clouds":
-    case "scattered clouds":
-      weatherIcon.src = "icons/icons8-partly-cloudy-day.gif";
-      break;
-    case "shower rain":
-      weatherIcon.src = "icons/icons8-light-rain.gif";
-      break;
-    case "rain":
-      weatherIcon.src = "icons/icons8-rain.gif";
-      break;
-    case "thunderstorm":
-      weatherIcon.src = "icons/icons8-storm.gif";
-      break;
-    case "snow":
-      weatherIcon.src = "icons/icons8-light-snow.gif";
-      break;
-    case "mist":
-      weatherIcon.src = "icons/icons8-haze.gif";
-      break;
-    default:
-      throw new error(`'${description}' was not a valid description`);
-  }
+  weatherIcon.src = getWeatherIconFromMain(data.main);
+  weatherIcon.alt = data.main;
+  desc.innerHTML = data.description;
+}
 
-  weatherIcon.alt = description;
-  desc.innerHTML = description;
+// Selects the corresponding icon from the given string
+function getWeatherIconFromMain(main) {
+  switch (main.toLowerCase()) {
+    case "thunderstorm":
+      return "icons/icons8-storm.gif";
+    case "drizzle":
+      return "icons/icons8-light-rain.gif";
+    case "rain":
+      return "icons/icons8-rain.gif";
+    case "snow":
+      return "icons/icons8-light-snow.gif";
+    case "clear":
+      return "icons/icons8-sun.gif";
+    case "clouds":
+      return "icons/icons8-partly-cloudy-day.gif";
+    default:
+      return "icons/icons8-haze.gif";
+  }
 }
